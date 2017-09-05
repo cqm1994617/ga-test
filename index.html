@@ -95,6 +95,9 @@
                 <button class="click" data-id=${item.id} data-name=${item.name} data-position=${item.position}>点击</button>
                 <button class="detail" data-id=${item.id} data-name=${item.name} data-position=${item.position}>查看详情</button>
                 <button class="cart" data-id=${item.id} data-name=${item.name} data-position=${item.position}>加入购物车</button>
+                <button class="step1">步骤一</button>
+                <button class="step2">步骤二</button>
+                <button class="step3">步骤三</button>
             </li>`
     }
     document.getElementById('list').innerHTML = list.map(item => getItem(item)).join('');
@@ -126,9 +129,24 @@
                 name
             });
             ga('ec:setAction', 'add');
-            if (position == 2) {
-                ga('send', 'event', 'ga-test', '添加购物车');
-            }
+        }
+        if (className == 'step1') {
+            ga('ec:setAction','checkout', {
+                step: 1,
+                option: '步骤一'
+            });
+        }
+        if (className == 'step2') {
+            ga('ec:setAction','checkout_option', {
+                step: 2,
+                option: '步骤二'
+            });
+        }
+        if (className == 'step3') {
+            ga('ec:setAction', 'checkout_option', {
+                step: 3,
+                option: '步骤三'
+            });
         }
 
     })
