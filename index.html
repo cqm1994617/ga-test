@@ -42,7 +42,6 @@
 
         ga('create', 'UA-105820094-1', 'auto');
         ga('require', 'ec');
-        ga('send', 'pageview');
     </script>
 </head>
 <body>
@@ -90,6 +89,7 @@
             list: '主页列表',
             position: item.id + 1
         });
+
         return `<li>
                 <p>${item.name}</p>
                 <button class="click" data-id=${item.id} data-name=${item.name} data-position=${item.position}>点击</button>
@@ -108,6 +108,7 @@
         var id = $(this).attr('data-id');
         var name = $(this).attr('data-name');
         var position = $(this).attr('data-position');
+
         if (className == 'click') {
             ga('ec:addProduct', {
                 id,
@@ -115,6 +116,7 @@
                 position
             });
             ga('ec:setAction', 'click', {list: '主页列表'});
+            ga('send', 'event', 'ga-test', '点击了列表');
         }
         if (className == 'detail') {
             ga('ec:addProduct', {
@@ -123,6 +125,7 @@
                 position
             });
             ga('ec:setAction', 'detail');
+            ga('send', 'event', 'ga-test', '查看详情');
         }
         if (className == 'cart') {
             ga('ec:addProduct', {
@@ -130,6 +133,7 @@
                 name
             });
             ga('ec:setAction', 'add');
+            ga('send', 'event', 'ga-test', '添加购物车');
         }
         if (className == 'step1') {
             ga('ec:addProduct', {
@@ -140,6 +144,7 @@
                 step: 1,
                 option: '步骤一'
             });
+            ga('send', 'event', 'ga-test', '步骤一触发');
         }
         if (className == 'step2') {
             ga('ec:addProduct', {
@@ -150,6 +155,7 @@
                 step: 2,
                 option: '步骤二'
             });
+            ga('send', 'event', 'ga-test', '步骤二触发');
         }
         if (className == 'step3') {
             ga('ec:addProduct', {
@@ -160,6 +166,7 @@
                 step: 3,
                 option: '步骤三'
             });
+            ga('send', 'event', 'ga-test', '步骤三触发');
         }
         if (className == 'purchase') {
             ga('ec:addProduct', {
@@ -170,9 +177,12 @@
                 id,
                 name
             });
+            ga('send', 'event', 'ga-test', '结账');
         }
 
     })
+
+    ga('send', 'pageview');
 </script>
 </body>
 </html>
