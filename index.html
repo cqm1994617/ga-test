@@ -95,9 +95,9 @@
                 <button class="click" data-id=${item.id} data-name=${item.name} data-position=${item.position}>点击</button>
                 <button class="detail" data-id=${item.id} data-name=${item.name} data-position=${item.position}>查看详情</button>
                 <button class="cart" data-id=${item.id} data-name=${item.name} data-position=${item.position}>加入购物车</button>
-                <button class="step1">步骤一</button>
-                <button class="step2">步骤二</button>
-                <button class="step3">步骤三</button>
+                <button class="step1" data-id=${item.id} data-name=${item.name} data-position=${item.position}>步骤一</button>
+                <button class="step2" data-id=${item.id} data-name=${item.name} data-position=${item.position}>步骤二</button>
+                <button class="step3" data-id=${item.id} data-name=${item.name} data-position=${item.position}>步骤三</button>
             </li>`
     }
     document.getElementById('list').innerHTML = list.map(item => getItem(item)).join('');
