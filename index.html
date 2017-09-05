@@ -132,24 +132,40 @@
             ga('ec:setAction', 'add');
         }
         if (className == 'step1') {
+            ga('ec:addProduct', {
+                id,
+                name
+            });
             ga('ec:setAction', 'checkout', {
                 step: 1,
                 option: '步骤一'
             });
         }
         if (className == 'step2') {
+            ga('ec:addProduct', {
+                id,
+                name
+            });
             ga('ec:setAction', 'checkout_option', {
                 step: 2,
                 option: '步骤二'
             });
         }
         if (className == 'step3') {
+            ga('ec:addProduct', {
+                id,
+                name
+            });
             ga('ec:setAction', 'checkout_option', {
                 step: 3,
                 option: '步骤三'
             });
         }
         if (className == 'purchase') {
+            ga('ec:addProduct', {
+                id,
+                name
+            });
             ga('ec:setAction', 'purchase', {
                 id,
                 name
