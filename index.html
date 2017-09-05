@@ -126,6 +126,9 @@
                 name
             });
             ga('ec:setAction', 'add');
+            if (position == 2) {
+                ga('send', 'event', 'ga-test', '添加购物车');
+            }
         }
 
     })
